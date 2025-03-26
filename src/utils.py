@@ -155,7 +155,7 @@ def setup_logger(name, log_file='output.log', level=logging.DEBUG):
     logger.info("Logger has been successfully configured.")
     return logger
 
-def optimize_layer_weights(data_path,loss_fn, num_epochs=2, lr=0.01,min_lr = 1e-3):
+def optimize_layer_weights(data_path,loss_fn, num_epochs=2, lr=0.03):
 
     all_data = json.load(open(data_path,'r'))
     human_score_ls = []
@@ -181,8 +181,9 @@ def optimize_layer_weights(data_path,loss_fn, num_epochs=2, lr=0.01,min_lr = 1e-
     all_res=  []
     L = len(logits_ls[0])  
     random.shuffle(logits_ls)
-    
+    #weights = torch.nn.Parameter(torch.cat([torch.zeros(L - 1), torch.tensor([1.0])]),requires_grad=True)
     weights = torch.nn.Parameter(torch.ones(L, requires_grad=True))
+
     optimizer = optim.Adam([weights], lr=lr)
 
     for epoch in trange(num_epochs):
@@ -200,6 +201,7 @@ def optimize_layer_weights(data_path,loss_fn, num_epochs=2, lr=0.01,min_lr = 1e-
 
             weighted_sum = torch.zeros_like(logits[0])  
             for l in range(L):
+
                 if type(loss_fn) == torch.nn.modules.loss.CrossEntropyLoss:
                     weighted_sum += normalized_weights[l] * logits[l]  
                     predictions = weighted_sum
@@ -209,7 +211,8 @@ def optimize_layer_weights(data_path,loss_fn, num_epochs=2, lr=0.01,min_lr = 1e-
 
 
             loss = loss_fn(predictions,target)
-
+            if total_loss == 0:
+                start_loss = loss.item()
             total_loss += loss.item()
             all_res.append(total_loss/(sample_idx+1))
 
@@ -217,6 +220,6 @@ def optimize_layer_weights(data_path,loss_fn, num_epochs=2, lr=0.01,min_lr = 1e-
             loss.backward()
             optimizer.step()
 
-        print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss:.4f}")
+        print(f"Epoch [{epoch + 1}/{num_epochs}], start Loss: {start_loss:.4f} final Loss: {loss:.4f}")
 
     return torch.softmax(weights, dim=0).detach()

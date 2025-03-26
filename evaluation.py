@@ -26,7 +26,7 @@ def calc_corr(pred_score, score_type,human_score,type_r = 'pearson' ):
 
 def print_correlations(all_score_dict,human_score):
     metrics = ['pearson','spearman']
-    scores = ['direct_score','palmscore_wo','palmscore_w']
+    scores = ['direct_score','weighted_score','palmscore_wo','palmscore_w']
     table = PrettyTable(['score_type']+metrics)
     for score in scores:
         add_row = [score] +[round(calc_corr(all_score_dict[score],score_type=score,human_score=human_score,type_r = 'pearson'),3),

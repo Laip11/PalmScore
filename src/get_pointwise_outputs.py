@@ -68,7 +68,6 @@ if __name__ == '__main__':
 
     tokenized_inputs,save_idx_ls = get_batch_inputs(all_prompts,
                                                     tokenizer,
-                                                    with_cot = args.with_cot,
                                                     batch_size = args.batch_size,
                                                     device = f'cuda:{cuda_n-1}',
                                                     max_length=args.max_length)
