@@ -76,7 +76,7 @@ CUDA_VISIBLE_DEVICES=0 python3 palmscore/get_pointwise_outputs.py \
      --dtype bfloat16 \
      --input_file data/main/flask.json
 
-## You can modify your parameters in the `scripts/run_direct.sh` script and then run it.
+## You can modify the parameters in the `scripts/run_direct.sh` script and then run it.
 ## bash scripts/run_direct.sh
 
 # Reasoning condition
@@ -90,7 +90,7 @@ CUDA_VISIBLE_DEVICES=0 python3 palmscore/get_pointwise_outputs.py \
       --dtype bfloat16 \
       --input_file data/main/flask.json
 
-## You can modify your parameters in the `scripts/run_reasoning.sh` script and then run it.
+## You can modify the parameters in the `scripts/run_reasoning.sh` script and then run it.
 ## bash scripts/run_reasoning.sh
 
 ```
@@ -113,7 +113,7 @@ CUDA_VISIBLE_DEVICES=0 python3 palmscore/sft_data_filtering.py \
       --batch_size 16 \
       --model_name_or_path LLM-Research/Meta-Llama-3.1-8B-Instruct
 
-## You can modify your parameters in the `scripts/run_sft_data_filtering.sh` script and then run it.
+## You can modify the parameters in the `scripts/run_sft_data_filtering.sh` script and then run it.
 ## bash scripts/run_sft_data_filtering.sh
 ```
 
@@ -126,7 +126,7 @@ CUDA_VISIBLE_DEVICES=0 python palmscore/self-knowledge.py \
     --valid_data_path results/valid/Meta-Llama-3___1-8B-Instruct_logits.json \
     --in_file data/self-knowledge/prompt_unknow.json
 
-## You can modify your parameters in the `scripts/run_self_knowledge.sh` script and then run it.
+## You can modify the parameters in the `scripts/run_self_knowledge.sh` script and then run it.
 ## bash scripts/run_self_knowledge.sh
 ```
 4. **Sentiment Understanding**
@@ -137,7 +137,7 @@ CUDA_VISIBLE_DEVICES=0 python palmscore/sentiment_understanding.py \
         --model_path LLM-Research/Meta-Llama-3.1-8B-Instruct \
         --valid_data_path results/valid/Meta-Llama-3___1-8B-Instruct_logits.json 
 
-## You can modify your parameters in the `scripts/run_sentiment_understanding.sh` script and then run it.
+## You can modify the parameters in the `scripts/run_sentiment_understanding.sh` script and then run it.
 ## run scripts/run_sentiment_understanding.sh
 ```
 
