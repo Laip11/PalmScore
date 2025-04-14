@@ -1,6 +1,6 @@
 
 
-# 🌟 PalmScore
+# 🌴 PalmScore
 
 Welcome to the official code repository for **[Enhanced LLM-As-A-Judge with Layer-Wise Logits Aggregation]**! 🚀 This repository contains all the code, resources, and instructions needed to explore our work and reproduce the experimental results from our paper. If you are interested in our work or wish to reproduce our experimental results, please read the following sections carefully.
 
