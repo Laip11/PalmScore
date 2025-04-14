@@ -17,8 +17,8 @@ Welcome to the official code repository for **[Enhanced LLM-As-A-Judge with Laye
 Inspired by the insight that middle-to-top layers capture critical judgment information, we aggregate logits across all layers using lightweight weight parameters, keeping the LLM backbone frozen. This results in a robust and fine-grained judgment score. 
 
 🔍 **Key Highlights**:
-- Outperforms baseline methods on **Flask**, **HelpSteer**, and **BIGGen** benchmarks.
-- Achieves comparable or superior performance to reasoning-based baselines, even without reasoning.
+- Outperforms baseline methods on the comprehensive and human-annotated benchmarks: **Flask**, **HelpSteer**, and **BIGGen Bench**.
+- It achieves comparable or superior performance to reasoning-based baselines, even without reasoning.
 - Excels in downstream tasks like **data selection**, **Sentiment Understanding** and **knowledge boundary detection**.
 
 ---
